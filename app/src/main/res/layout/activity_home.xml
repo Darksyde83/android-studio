@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="174dp"
+        android:layout_height="99dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yncrea_isen_logo" />
+
+    <TextView
+        android:id="@+id/bjr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bonjour"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="#848484"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <TextView
+        android:id="@+id/cycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycle de vie"
+        android:textColor="#848484"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.250"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/svg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sauvegarde"
+        android:textColor="#848484"
+        app:layout_constraintStart_toEndOf="@+id/cycle"
+        app:layout_constraintTop_toTopOf="@+id/cycle"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/perm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Permissions"
+        android:textColor="#848484"
+        app:layout_constraintTop_toBottomOf="@+id/cycle"
+        app:layout_constraintStart_toStartOf="@+id/cycle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+        <TextView
+            android:id="@+id/webservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WebServices"
+            android:textColor="#848484"
+            app:layout_constraintStart_toStartOf="@+id/svg"
+            app:layout_constraintTop_toTopOf="@+id/perm"
+            />
+    <Button
+        android:id="@+id/btc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bouton_1"
+        app:layout_constraintBottom_toTopOf="@+id/cycle"
+        app:layout_constraintStart_toStartOf="@+id/cycle"
+        app:layout_constraintEnd_toEndOf="@+id/cycle"/>
+
+    <Button
+        android:id="@+id/bts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bouton_2"
+        app:layout_constraintBottom_toTopOf="@+id/svg"
+        app:layout_constraintStart_toStartOf="@+id/svg"
+        app:layout_constraintEnd_toEndOf="@+id/svg"/>
+
+    <Button
+        android:id="@+id/btp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buton_3"
+        app:layout_constraintBottom_toTopOf="@+id/perm"
+        app:layout_constraintStart_toStartOf="@+id/perm"
+        app:layout_constraintEnd_toEndOf="@+id/perm"/>
+
+    <Button
+        android:id="@+id/btw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buton_4"
+        app:layout_constraintBottom_toTopOf="@+id/webservice"
+        app:layout_constraintStart_toStartOf="@+id/webservice"
+        app:layout_constraintEnd_toEndOf="@+id/webservice"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
