@@ -7,7 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
+
+    companion object{
+        private const val GOOD_ID = "admin"
+        private const val GOOD_MDP = "123"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     public fun login() {
-        if (yourId.getText().toString().equals("admin") && yourmdp.getText().toString().equals("123")) {
+        if (yourId.getText().toString().equals(GOOD_ID) && yourmdp.getText().toString().equals(GOOD_MDP)) {
             val message = "identifié"
             Toast.makeText(this , message ,Toast.LENGTH_LONG).show()
             startActivity(Intent(this, HomeActivity::class.java))
