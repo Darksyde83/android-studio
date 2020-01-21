@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentActivity">
+    tools:context=".CycleVieFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/cyclefrag"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        android:text="Edit Text"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp" />
 
 </FrameLayout>

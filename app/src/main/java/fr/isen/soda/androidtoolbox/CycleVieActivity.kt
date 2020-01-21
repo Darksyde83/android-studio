@@ -1,8 +1,11 @@
 package fr.isen.soda.androidtoolbox
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_cycle_vie.*
 
@@ -49,5 +52,6 @@ class CycleVieActivity : AppCompatActivity() {
         notification("onDestroy", false)
         Toast.makeText(this, "onDestroy",Toast.LENGTH_LONG).show()
     }
+
 
 }
