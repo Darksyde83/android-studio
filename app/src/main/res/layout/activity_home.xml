@@ -107,4 +107,14 @@
         app:layout_constraintStart_toStartOf="@+id/webservice"
         app:layout_constraintEnd_toEndOf="@+id/webservice"/>
 
+    <Button
+        android:id="@+id/deco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#D02F0C"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:text="Déconnection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="fr.isen.soda.androidtoolbox.CycleVieActivity" ></activity>
-        <activity android:name="fr.isen.soda.androidtoolbox.HomeActivity" />
-        <activity android:name="fr.isen.soda.androidtoolbox.LoginActivity">
+        <activity android:name=".FormulaireActivity"></activity>
+        <activity android:name=".CycleVieActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
