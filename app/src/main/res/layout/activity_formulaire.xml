@@ -100,16 +100,31 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <Button
-        android:id="@+id/val"
+        android:id="@+id/vale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FF0000"
-        android:text="validé"
+        android:text="valider"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/affichage"
+        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tadateJ"
+        app:layout_constraintVertical_bias="0.454" />
+
+    <Button
+        android:id="@+id/affichage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF0000"
+        android:text="afficher"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vale"
         app:layout_constraintTop_toBottomOf="@+id/tadateJ" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
