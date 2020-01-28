@@ -21,6 +21,9 @@ class HomeActivity : AppCompatActivity() {
         deco.setOnClickListener{
             deconnection()
         }
+        btp.setOnClickListener{
+            permition()
+        }
     }
 
     private fun cycle() {
@@ -43,5 +46,10 @@ class HomeActivity : AppCompatActivity() {
         val message = "Formulaire"
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, FormulaireActivity::class.java))
+    }
+    private fun permition() {
+        val message = "Permition"
+        Toast.makeText(this , message , Toast.LENGTH_LONG).show()
+        startActivity(Intent(this, AffichageActivity::class.java))
     }
 }

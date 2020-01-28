@@ -3,12 +3,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nom"><u><b>Nom:</b> </u></string>
+    <string name="nom"><u><b>Nom</b></u>:</string>
     <string name="nomFamille">Nom De Famille</string>
-    <string name="prenom"><u><b>Prénom:</b> </u></string>
+    <string name="prenom"><u><b>Prénom</b></u>:</string>
     <string name="pren">Prénom</string>
-    <string name="naissance"><u><b>Date De Naissance:</b> </u></string>
+    <string name="naissance"><u><b>Date De Naissance</b></u>:</string>
     <string name="jour">Jour</string>
     <string name="mois">Mois</string>
     <string name="annee">Année</string>
+    <string name="information"><b>Accès aux informations Android</b></string>
+    <string name="latitude"><u>Latitude</u>:</string>
+    <string name="longitude"><u>Longitude</u>:</string>
+    <string name="valLatitude">0.0</string>
+    <string name="valLongitude">0.0</string>
+    <string name="permission">Permission denied</string>
 </resources>

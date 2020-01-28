@@ -37,7 +37,6 @@ class FormulaireActivity : AppCompatActivity() {
 
         if(nom.isNotEmpty() && prenom.isNotEmpty() && date.isNotEmpty()/*!= getString(R.string.storage_date_value)*/) {
             val data = "{'$NOM_KEY': '$nom', '$PRENOM_KEY': '$prenom', '$DATE_KEY': '$date'}"
-            val dataJson = JSONObject().put(NOM_KEY,nom)
             File(cacheDir.absolutePath + JSON_FILE).writeText(data)
             Toast.makeText(this@FormulaireActivity,"Sauvegarde des informations de l'utilisateur", Toast.LENGTH_LONG).show()
         }
