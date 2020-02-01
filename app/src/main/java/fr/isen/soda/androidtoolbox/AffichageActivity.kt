@@ -2,10 +2,13 @@ package fr.isen.soda.androidtoolbox
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -21,6 +24,7 @@ class AffichageActivity : AppCompatActivity() {
         //permission coe
         private val PERMISSION_CODE_CONTACT = 1001
         private val PERMISSION_CODE_IMAGE = 1002
+        private val PERMISSION_CODE_CAMERA = 1003
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,12 +44,7 @@ class AffichageActivity : AppCompatActivity() {
 
         //acces a la galerie photo
         photo.setOnClickListener {
-            if(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_CODE_IMAGE)
-            }
-            else{
-                pickImageFromGallery()
-            }
+            showPictureDialog()
         }
 
     }
@@ -57,6 +56,10 @@ class AffichageActivity : AppCompatActivity() {
 
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             photo.setImageURI(data?.data)
+        }
+        else if ( resultCode == Activity.RESULT_OK){
+            var bmp = data?.extras?.get("data") as Bitmap
+            photo.setImageBitmap(bmp)
         }
     }
 
@@ -75,6 +78,9 @@ class AffichageActivity : AppCompatActivity() {
         }
         else if(grantResults.isNotEmpty() &&grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == PERMISSION_CODE_IMAGE) {
             pickImageFromGallery()
+        }
+        else if(grantResults.isNotEmpty() &&grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == PERMISSION_CODE_CAMERA) {
+            takepickture()
         }
         else{
             Toast.makeText(this,R.string.permission,Toast.LENGTH_SHORT).show()
@@ -106,6 +112,40 @@ class AffichageActivity : AppCompatActivity() {
             cursor.close()
         }
         return contactNameList
+    }
+
+    private fun takepickture(){
+        var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(intent,PERMISSION_CODE_CAMERA)
+    }
+    private fun showPictureDialog() {
+        val pictureDialog = AlertDialog.Builder(this)
+        pictureDialog.setTitle("Select Action")
+        val pictureDialogItems = arrayOf(getString(R.string.galerie),getString(R.string.camera))
+        pictureDialog.setItems(pictureDialogItems) {
+                _,  which ->
+            when (which) {
+                0 -> pickImageFromGalleryPermition()
+                1 -> takepickturePermition()
+            }
+        }
+        pictureDialog.show()
+    }
+    private fun pickImageFromGalleryPermition() {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_CODE_IMAGE)
+        }
+        else{
+            pickImageFromGallery()
+        }
+    }
+    private fun takepickturePermition() {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.CAMERA), PERMISSION_CODE_CAMERA)
+        }
+        else{
+            takepickture()
+        }
     }
 }
 
