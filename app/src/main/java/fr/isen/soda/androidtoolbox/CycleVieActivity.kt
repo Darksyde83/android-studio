@@ -1,6 +1,7 @@
 package fr.isen.soda.androidtoolbox
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
@@ -18,7 +19,18 @@ class CycleVieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cycle_vie)
         showFragmentOne()
-       // notification("onCreate", true)
+        bt.setOnClickListener {
+            if(isFragmentOneLoaded){
+                showFragmentOne()
+            }
+            else{
+                showFragmentTwo()
+            }
+        }
+        quitte.setOnClickListener {
+            goHome()
+        }
+        notification("onCreate", true)
     }
 
      private fun notification(message: String, isActive: Boolean) {
@@ -32,7 +44,7 @@ class CycleVieActivity : AppCompatActivity() {
      override fun onStart() {
          super.onStart()
          notification("onStart",  true)
-     }
+}
 
      override fun onResume() {
          super.onResume()
@@ -62,7 +74,22 @@ class CycleVieActivity : AppCompatActivity() {
         transaction.replace(R.id.fragment_holder,fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+        isFragmentOneLoaded = false
+    }
+    fun showFragmentTwo (){
+        val transaction = manager.beginTransaction()
+        val fragment = Cycle_vie_Fragment2()
+        transaction.replace(R.id.fragment_holder,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
         isFragmentOneLoaded = true
+    }
+    private fun goHome() {
+        val message = "Home"
+        Toast.makeText(this , message , Toast.LENGTH_LONG).show()
+        startActivity(Intent(this, HomeActivity::class.java))
+        this.finish()
+
     }
 
 }

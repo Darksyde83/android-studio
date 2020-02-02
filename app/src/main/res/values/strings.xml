@@ -2,7 +2,10 @@
     <string name="app_name">AndroidToolBox</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="fragment">Je suis un fragment</string>
+    <string name="fragment">Je suis un fragment 1</string>
+    <string name="fragment2">Je suis un fragment 2</string>
+    <string name="changefrag">changer le fragment</string>
+    <string name="quiter">Quitter</string>
     <string name="nom"><u><b>Nom</b></u>:</string>
     <string name="nomFamille">Nom De Famille</string>
     <string name="prenom"><u><b>Prénom</b></u>:</string>
@@ -19,7 +22,6 @@
     <string name="permission">Permission denied</string>
     <string name="camera">Prendre une photo avec la caméra</string>
     <string name="galerie">Selectionner dans la galerie</string>
+    <string name="remplir">à remplir</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
