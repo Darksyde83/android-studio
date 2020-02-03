@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Cycle_vie_Fragment2">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="20sp"
+        android:gravity="center_horizontal"
         android:text="@string/fragment2" />
 
 </FrameLayout>

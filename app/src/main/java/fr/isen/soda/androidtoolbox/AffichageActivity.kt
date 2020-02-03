@@ -3,9 +3,13 @@ package fr.isen.soda.androidtoolbox
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
@@ -16,16 +20,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_affichage.*
 
-class AffichageActivity : AppCompatActivity() {
+class AffichageActivity : AppCompatActivity(), LocationListener {
 
     companion object {
         //image pick code
         private val IMAGE_PICK_CODE = 1000
         //permission coe
         private val PERMISSION_CODE_CONTACT = 1001
+        private val PERMISSION_CODE_CONTACT_LOCATION = 1005
         private val PERMISSION_CODE_IMAGE = 1002
         private val PERMISSION_CODE_CAMERA = 1003
+        private val PERMISSION_CODE_LOCALISATION = 1004
     }
+    private var locationManager : LocationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +43,20 @@ class AffichageActivity : AppCompatActivity() {
 
         //sinon on demande
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.READ_CONTACTS), PERMISSION_CODE_CONTACT)
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_COARSE_LOCATION), PERMISSION_CODE_CONTACT_LOCATION)
+            }
+            else{
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), PERMISSION_CODE_CONTACT)
+                showCurrentPosition()
+            }
+        }
+        else if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), PERMISSION_CODE_LOCALISATION)
+            displayContact()
         }
         else{
+            showCurrentPosition()
             displayContact()
         }
 
@@ -81,6 +99,14 @@ class AffichageActivity : AppCompatActivity() {
         }
         else if(grantResults.isNotEmpty() &&grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == PERMISSION_CODE_CAMERA) {
             takepickture()
+        }
+        else if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == PERMISSION_CODE_LOCALISATION)
+        {
+            showCurrentPosition()
+        }
+        else if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == PERMISSION_CODE_CONTACT_LOCATION){
+            displayContact()
+            showCurrentPosition()
         }
         else{
             Toast.makeText(this,R.string.permission,Toast.LENGTH_SHORT).show()
@@ -146,6 +172,38 @@ class AffichageActivity : AppCompatActivity() {
         else{
             takepickture()
         }
+    }
+
+    private fun showCurrentPosition () {
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 1f, this)
+            val location = locationManager?.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+            valLatitude.text = location?.latitude.toString()
+            valLongitude.text = location?.longitude.toString()
+        }
+
+    }
+
+    override fun onLocationChanged(location: Location?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProviderEnabled(provider: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProviderDisabled(provider: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onStop() {
+        super.onStop()
+        locationManager!!.removeUpdates(this)
     }
 }
 

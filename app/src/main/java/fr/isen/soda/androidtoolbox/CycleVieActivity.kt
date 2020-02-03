@@ -15,6 +15,7 @@ class CycleVieActivity : AppCompatActivity() {
     var isFragmentOneLoaded = true
     val manager = supportFragmentManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cycle_vie)
@@ -68,7 +69,7 @@ class CycleVieActivity : AppCompatActivity() {
          Toast.makeText(this, "onDestroy",Toast.LENGTH_LONG).show()
      }
 
-    fun showFragmentOne (){
+    private fun showFragmentOne (){
         val transaction = manager.beginTransaction()
         val fragment = Cycle_vie_Fragment()
         transaction.replace(R.id.fragment_holder,fragment)
@@ -76,10 +77,10 @@ class CycleVieActivity : AppCompatActivity() {
         transaction.commit()
         isFragmentOneLoaded = false
     }
-    fun showFragmentTwo (){
+    private fun showFragmentTwo (){
         val transaction = manager.beginTransaction()
-        val fragment = Cycle_vie_Fragment2()
-        transaction.replace(R.id.fragment_holder,fragment)
+        val fragment2 = Cycle_vie_Fragment2()
+        transaction.replace(R.id.fragment_holder,fragment2)
         transaction.addToBackStack(null)
         transaction.commit()
         isFragmentOneLoaded = true
