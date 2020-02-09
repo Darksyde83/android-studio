@@ -2,10 +2,13 @@
     <string name="app_name">Théo SODA.AndroidToolBox</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <!--Cycle de vie -->
     <string name="fragment">Je suis un fragment 1</string>
     <string name="fragment2">Je suis un fragment 2</string>
     <string name="changefrag">changer le fragment</string>
     <string name="quiter">Quitter</string>
+    <string name="etat">état</string>
+    <!--Formulaire-->
     <string name="nom"><u><b>Nom</b></u>:</string>
     <string name="nomFamille">Nom De Famille</string>
     <string name="prenom"><u><b>Prénom</b></u>:</string>
@@ -14,6 +17,16 @@
     <string name="jour">Jour</string>
     <string name="mois">Mois</string>
     <string name="annee">Année</string>
+    <string name="aff">Afficher</string>
+    <string name="svgInf">Sauvegarde des informations de l\'utilisateur</string>
+    <string name="lec">Lecture du fichier</string>
+    <string name="date">Date:</string>
+    <string name="age">Age:</string>
+    <string name="dataUser">data_user_toolbox.json</string>
+    <string name="noms">nom</string>
+    <string name="dates">date</string>
+    <string name="prenoms">prenom</string>
+    <!--affichage-->
     <string name="information"><b>Accès aux informations Android</b></string>
     <string name="latitude"><u>Latitude</u>:</string>
     <string name="longitude"><u>Longitude</u>:</string>
@@ -29,6 +42,27 @@
     <string name="mail">email</string>
     <string name="wrong">something wrong</string>
     <string name="good">its fine</string>
-
+    <!--Login-->
+    <string name="connection">Connection</string>
+    <string name="identifiant">Identifiant:</string>
+    <string name="mdp">Mot de passe:</string>
+    <string name="mdp2">mdp</string>
+    <string name="validé">Validé</string>
+    <!--Home-->
+    <string name="bonjour">Bonjour</string>
+    <string name="cdv">Cycle de vie</string>
+    <string name="svg">Sauvegarde</string>
+    <string name="perm">Permissions</string>
+    <string name="web">WebServices</string>
+    <string name="form">Formulaire</string>
+    <!--LoginAtivity-->
+    <string name="admin">admin</string>
+    <string name="mdpadmin">123</string>
+    <string name="id">id</string>
+    <string name="user_pref">user_pref</string>
+    <string name="strIdentifiant">strIdentifiant</string>
+    <string name="identifié">identifié</string>
+    <string name="nidentifié">non identifié</string>
+    <string name="pasSvg">le fichier est vide</string>
 
 </resources>

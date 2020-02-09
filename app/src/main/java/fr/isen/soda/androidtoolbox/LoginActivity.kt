@@ -47,14 +47,14 @@ class LoginActivity : AppCompatActivity() {
         val name = yourId.text.toString().trim()
         val mdp = yourmdp.text.toString().trim()
         if (yourId.getText().toString().equals(GOOD_ID) && yourmdp.getText().toString().equals(GOOD_MDP)) {
-            val message = "identifié"
+            val message = (R.string.identifié)
             Toast.makeText(this , message ,Toast.LENGTH_LONG).show()
             saveUser(name,mdp)
             startActivity(Intent(this, HomeActivity::class.java))
             home(name,true)
         }
         else {
-            val message = "non identifié"
+            val message = (R.string.nidentifié)
             Toast.makeText(this , message ,Toast.LENGTH_LONG).show()
         }
     }
@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun home (tonid: String,clear: Boolean){
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-        intent.putExtra("strIdentifiant",tonid)
+        intent.putExtra((R.string.strIdentifiant).toString(),tonid)
         if (clear) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         }

@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun cycle() {
-        val message = "Cycle de vie"
+        val message = (R.string.cdv)
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, CycleVieActivity::class.java))
     }
@@ -46,17 +46,17 @@ class HomeActivity : AppCompatActivity() {
         finish()
     }
     private fun formulaire() {
-        val message = "Formulaire"
+        val message = (R.string.form)
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, FormulaireActivity::class.java))
     }
     private fun permition() {
-        val message = "Permition"
+        val message = (R.string.perm)
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, AffichageActivity::class.java))
     }
     private fun website() {
-        val message = "Website"
+        val message = (R.string.web)
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, WebSiteActivity::class.java))
     }

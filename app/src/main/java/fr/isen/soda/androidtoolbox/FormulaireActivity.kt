@@ -15,21 +15,34 @@ class FormulaireActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulaire)
         var age=0
+        var go =0
         vale.setOnClickListener{
+
             val j = tadateJ.text.toString()
-            val m =tadateM.text.toString()
-            val a =tadateA.text.toString()
-            val dateannive="$j / $m / $a"
+            val m = tadateM.text.toString()
+            val a = tadateA.text.toString()
             val nom = tonNom.text.toString()
             val prenom = tonPrenom.text.toString()
-            val jour  = Integer.parseInt(j)
-            val mois  = Integer.parseInt(m)
-            val année  = Integer.parseInt(a)
-            saveDataToFile(nom, prenom, dateannive)
-            age = calculAge(jour,mois,année)
+            if(j.isNotBlank() && m.isNotBlank() && a.isNotBlank()  && nom.isNotBlank() && prenom.isNotBlank()) {
+                val dateannive = "$j / $m / $a"
+                val jour = Integer.parseInt(j)
+                val mois = Integer.parseInt(m)
+                val année = Integer.parseInt(a)
+                saveDataToFile(nom, prenom, dateannive)
+                age = calculAge(jour, mois, année)
+                go = 1
+            }
+            else{
+                Toast.makeText(this,"un champs est vide",Toast.LENGTH_LONG).show()
+            }
         }
         affichage.setOnClickListener {
-            showDataFromFile(age)
+            if(go == 1) {
+                showDataFromFile(age)
+            }
+            else{
+                Toast.makeText(this,"Veuillez valider une personne",Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -41,16 +54,13 @@ class FormulaireActivity : AppCompatActivity() {
             Toast.makeText(this@FormulaireActivity,"Sauvegarde des informations de l'utilisateur", Toast.LENGTH_LONG).show()
         }
     }
-
     fun showDataFromFile(age: Int){
         val dataJson = File(cacheDir.absolutePath + JSON_FILE).readText()
-
         if(dataJson.isNotEmpty()){
             val jsonObject = JSONObject(dataJson)
             val strDate = jsonObject.optString(DATE_KEY)
             val strNom = jsonObject.optString(NOM_KEY)
             val strPrenom = jsonObject.optString(PRENOM_KEY)
-
             AlertDialog.Builder(this@FormulaireActivity)
                 .setTitle("Lecture du fichier")
                 .setMessage("Nom: $strNom \n Prenom: $strPrenom \n Date: $strDate \n Age: $age")
@@ -58,13 +68,10 @@ class FormulaireActivity : AppCompatActivity() {
                 .show()
         }
     }
-
     fun calculAge( day: Int ,month: Int , year: Int): Int {
         val dateAnnive= Calendar.getInstance()
         val today = Calendar.getInstance()
-
         dateAnnive.set(year, month, day)
-
         var age = today.get(Calendar.YEAR)-dateAnnive.get(Calendar.YEAR)
         if (today.get(Calendar.DAY_OF_MONTH) < dateAnnive.get(Calendar.DAY_OF_MONTH) && today.get(Calendar.MONTH)== dateAnnive.get(Calendar.MONTH) || today.get(Calendar.MONTH)< dateAnnive.get(Calendar.MONTH)){
             age--
