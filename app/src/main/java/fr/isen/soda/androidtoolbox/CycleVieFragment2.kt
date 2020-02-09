@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class Cycle_vie_Fragment2 : Fragment() {
+class CycleVieFragment2 : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

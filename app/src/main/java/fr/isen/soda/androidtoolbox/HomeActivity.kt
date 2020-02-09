@@ -24,6 +24,9 @@ class HomeActivity : AppCompatActivity() {
         btp.setOnClickListener{
             permition()
         }
+        btw.setOnClickListener {
+            website()
+        }
     }
 
     private fun cycle() {
@@ -51,5 +54,10 @@ class HomeActivity : AppCompatActivity() {
         val message = "Permition"
         Toast.makeText(this , message , Toast.LENGTH_LONG).show()
         startActivity(Intent(this, AffichageActivity::class.java))
+    }
+    private fun website() {
+        val message = "Website"
+        Toast.makeText(this , message , Toast.LENGTH_LONG).show()
+        startActivity(Intent(this, WebSiteActivity::class.java))
     }
 }

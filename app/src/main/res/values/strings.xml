@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidToolBox</string>
+    <string name="app_name">Théo SODA.AndroidToolBox</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="fragment">Je suis un fragment 1</string>
@@ -23,5 +23,12 @@
     <string name="camera">Prendre une photo avec la caméra</string>
     <string name="galerie">Selectionner dans la galerie</string>
     <string name="remplir">à remplir</string>
+    <!--Partie WebSite-->
+    <string name="nomWeb"><b>Nom Prénom</b></string>
+    <string name="adresse">adresse</string>
+    <string name="mail">email</string>
+    <string name="wrong">something wrong</string>
+    <string name="good">its fine</string>
+
 
 </resources>

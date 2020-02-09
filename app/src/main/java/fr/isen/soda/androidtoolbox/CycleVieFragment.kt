@@ -11,7 +11,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_cycle_vie_.*
 
 
-class Cycle_vie_Fragment : Fragment() {
+class CycleVieFragment : Fragment() {
 
 
     override fun onCreateView(

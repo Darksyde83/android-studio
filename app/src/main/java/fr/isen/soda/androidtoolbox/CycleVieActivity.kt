@@ -1,12 +1,9 @@
 package fr.isen.soda.androidtoolbox
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_cycle_vie.*
 
@@ -71,7 +68,7 @@ class CycleVieActivity : AppCompatActivity() {
 
     private fun showFragmentOne (){
         val transaction = manager.beginTransaction()
-        val fragment = Cycle_vie_Fragment()
+        val fragment = CycleVieFragment()
         transaction.replace(R.id.fragment_holder,fragment)
         transaction.addToBackStack(null)
         transaction.commit()
@@ -79,7 +76,7 @@ class CycleVieActivity : AppCompatActivity() {
     }
     private fun showFragmentTwo (){
         val transaction = manager.beginTransaction()
-        val fragment2 = Cycle_vie_Fragment2()
+        val fragment2 = CycleVieFragment2()
         transaction.replace(R.id.fragment_holder,fragment2)
         transaction.addToBackStack(null)
         transaction.commit()

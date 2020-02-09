@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".WebsiteAdapter">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/photoPersonne"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nomPersonne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nomWeb"
+        android:textColor="#6d6d6d"
+        android:textSize="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@+id/photoPersonne"
+        app:layout_constraintTop_toTopOf="@id/photoPersonne"
+        app:layout_constraintBottom_toTopOf="@id/adresse"/>
+
+    <TextView
+        android:id="@+id/adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adresse"
+        android:textColor="#8e8a8a"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@id/mail"
+        app:layout_constraintStart_toStartOf="@+id/nomPersonne"
+        app:layout_constraintTop_toBottomOf="@+id/nomPersonne" />
+
+    <TextView
+        android:id="@+id/mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mail"
+        android:textColor="#8e8a8a"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/photoPersonne"
+        app:layout_constraintStart_toStartOf="@+id/nomPersonne"
+        app:layout_constraintTop_toBottomOf="@+id/adresse" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
