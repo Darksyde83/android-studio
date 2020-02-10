@@ -36,6 +36,7 @@
     <string name="camera">Prendre une photo avec la caméra</string>
     <string name="galerie">Selectionner dans la galerie</string>
     <string name="remplir">à remplir</string>
+    <string name="messageloc">Veuiller activer le GPS et relancer l\'activité</string>
     <!--Partie WebSite-->
     <string name="nomWeb"><b>Nom Prénom</b></string>
     <string name="adresse">adresse</string>

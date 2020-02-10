@@ -33,7 +33,7 @@ class FormulaireActivity : AppCompatActivity() {
                 go = 1
             }
             else{
-                Toast.makeText(this,"un champs est vide",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Au moins un champs est vide",Toast.LENGTH_LONG).show()
             }
         }
         affichage.setOnClickListener {

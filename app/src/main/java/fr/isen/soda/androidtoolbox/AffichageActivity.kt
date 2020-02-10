@@ -176,11 +176,14 @@ class AffichageActivity : AppCompatActivity(), LocationListener {
 
     private fun showCurrentPosition () {
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 1f, this)
+        if(locationManager!!.isProviderEnabled( LocationManager.GPS_PROVIDER )&& ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,200, 1f, this)
             val location = locationManager?.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
             valLatitude.text = location?.latitude.toString()
             valLongitude.text = location?.longitude.toString()
+        }
+        else {
+            Toast.makeText(this,(R.string.messageloc),Toast.LENGTH_LONG).show()
         }
 
     }
